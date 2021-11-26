@@ -4,7 +4,7 @@
 ### CREATE User
 Request:
 - Method: POST
-- Endpoint: `/api/user`
+- Endpoint: `/api/users`
 - Header:
     - Content-Type: application/json
     - Accept: application/json
@@ -14,7 +14,7 @@ Request:
   "userId": "String, Unique",
   "fullName": "String",
   "email": "String",
-  "phone": "Number",
+  "phone": "String",
   "username": "String",
   "password": "String"
 }
@@ -28,7 +28,7 @@ Response:
     "userId": "String, Unique",
     "fullName": "String",
     "email": "String",
-    "phone": "Number",
+    "phone": "String",
     "username": "String",
     "createdAt": "Date",
     "updatedAt":"Date"
@@ -38,7 +38,7 @@ Response:
 ### READ User
 Request:
 - Method: GET
-- Endpoint: `/api/user/{userId}`
+- Endpoint: `/api/users/{userId}`
 - Header:
     - Accept: application/json
   
@@ -51,7 +51,7 @@ Response:
     "userId": "String, Unique",
     "fullName": "String",
     "email": "String",
-    "phone": "Number",
+    "phone": "String",
     "username": "String",
     "createdAt": "Date",
     "updatedAt": "Date"
@@ -61,7 +61,7 @@ Response:
 ### Update User
 Request:
 - Method: PUT
-- Endpoint: `/api/user/{userId}`
+- Endpoint: `/api/users/{userId}`
 - Header:
     - Content-Type: application/json
     - Accept: application/json
@@ -70,7 +70,7 @@ Request:
 {
   "fullName": "String",
   "email": "String",
-  "phone": "Number",
+  "phone": "String",
   "username": "String",
   "password": "String"
 }
@@ -84,7 +84,7 @@ Response:
     "userId": "String, Unique",
     "fullName": "String",
     "email": "String",
-    "phone": "Number",
+    "phone": "String",
     "username": "String",
     "password": "String",
     "createdAt": "Date",
@@ -95,7 +95,7 @@ Response:
 ### Delete User
 Request:
 - Method: DELETE
-- Endpoint: `/api/user/{userId}`
+- Endpoint: `/api/users/{userId}`
 - Header:
     - Accept: application/json
 
@@ -126,7 +126,7 @@ Response:
       "userId": "String, Unique",
       "fullName": "String",
       "email": "String",
-      "phone": "Number",
+      "phone": "String",
       "username": "String",
       "createdAt": "Date",
       "updatedAt": "Date"
@@ -159,7 +159,7 @@ Response:
     "userId": "String, Unique",
     "fullName": "String",
     "email": "String",
-    "phone": "Number",
+    "phone": "String",
     "username": "String",
     "createdAt": "Date",
     "updatedAt": "Date"
