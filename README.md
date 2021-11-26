@@ -1,4 +1,45 @@
-# WhoKnows Backend API Specification
+# WEB JSON REST API
+WhoKnows Backend API Specification
+
+## Authentication
+All API must have `X-Api-Key`
+
+### API Key
+Request:
+- Header:
+  - X-Api-Key: "The secret api key"
+
+### Sign In User
+Request:
+- Method: POST
+- Endpoint: `/api/auth/signin`
+- Header:
+  - X-Api-Key: "utif.pages.dev"
+  - Content-Type: application/json
+  - Accept: application/json
+- Body:
+```json
+{
+    "email": "String",
+    "password": "String"
+}
+```
+Response:
+```json
+{
+  "code": "Number",
+  "status": "String",
+  "data": {
+    "userId": "String, Unique",
+    "fullName": "String",
+    "email": "String",
+    "phone": "String",
+    "username": "String",
+    "createdAt": "Date",
+    "updatedAt": "Date"
+  }
+}
+```
 
 ## User
 ### CREATE User
@@ -6,6 +47,7 @@ Request:
 - Method: POST
 - Endpoint: `/api/users`
 - Header:
+    - X-Api-Key: "utif.pages.dev"
     - Content-Type: application/json
     - Accept: application/json
 - Body:
@@ -40,6 +82,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/users/{userId}`
 - Header:
+    - X-Api-Key: "utif.pages.dev"
     - Accept: application/json
   
 Response:
@@ -63,6 +106,7 @@ Request:
 - Method: PUT
 - Endpoint: `/api/users/{userId}`
 - Header:
+    - X-Api-Key: "utif.pages.dev"
     - Content-Type: application/json
     - Accept: application/json
 - Body:
@@ -97,6 +141,7 @@ Request:
 - Method: DELETE
 - Endpoint: `/api/users/{userId}`
 - Header:
+    - X-Api-Key: "utif.pages.dev"
     - Accept: application/json
 
 Response:
@@ -111,6 +156,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/users`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 - Query Param:
   - size: Number,
@@ -135,44 +181,13 @@ Response:
 }
 ```
 
-## Auth
-### Sign In User
-Request:
-- Method: POST
-- Endpoint: `/api/auth/signin`
-- Header:
-  - Content-Type: application/json
-  - Accept: application/json
-- Body:
-```json
-{
-    "email": "String",
-    "password": "String"
-}
-```
-Response:
-```json
-{
-  "code": "Number",
-  "status": "String",
-  "data": {
-    "userId": "String, Unique",
-    "fullName": "String",
-    "email": "String",
-    "phone": "String",
-    "username": "String",
-    "createdAt": "Date",
-    "updatedAt": "Date"
-  }
-}
-```
-
 ## Room
 ### CREATE Room
 Request:
 - Method: POST
 - Endpoint: `/api/room`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -210,6 +225,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/user/{roomId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 
 Response:
@@ -234,6 +250,7 @@ Request:
 - Method: PUT
 - Endpoint: `/api/room/{roomId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -267,6 +284,7 @@ Request:
 - Method: DELETE
 - Endpoint: `/api/room/{roomId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 Response:
 ```json
@@ -280,6 +298,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/rooms`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 - Query Param:
   - size: Number,
@@ -311,6 +330,7 @@ Request:
 - Method: POST
 - Endpoint: `/api/quiz`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -350,6 +370,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/quiz/{quizId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 
 Response:
@@ -375,6 +396,7 @@ Request:
 - Method: PUT
 - Endpoint: `/api/quiz/{quizId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -409,6 +431,7 @@ Request:
 - Method: DELETE
 - Endpoint: `/api/quiz/{quizId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 
 Response:
@@ -423,6 +446,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/questions`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 - Query Param:
   - size: Number,
@@ -455,6 +479,7 @@ Request:
 - Method: POST
 - Endpoint: `/api/result`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -490,6 +515,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/result/{resultId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 
 Response:
@@ -514,6 +540,7 @@ Request:
 - Method: PUT
 - Endpoint: `/api/user/{userId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -548,6 +575,7 @@ Request:
 - Method: DELETE
 - Endpoint: `/api/result/{resultId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
   
 Response:
@@ -562,6 +590,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/results`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 - Query Param:
   - size: Number,
@@ -593,6 +622,7 @@ Request:
 - Method: POST
 - Endpoint: `/api/participant`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -628,6 +658,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/participant/{participantId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 
 Response:
@@ -652,6 +683,7 @@ Request:
 - Method: PUT
 - Endpoint: `/api/participant/{participantId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
   - Accept: application/json
 - Body:
@@ -685,6 +717,7 @@ Request:
 - Method: DELETE
 - Endpoint: `/api/participant/{participantId}`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json 
 
 Response:
@@ -699,6 +732,7 @@ Request:
 - Method: GET
 - Endpoint: `/api/participants`
 - Header:
+  - X-Api-Key: "utif.pages.dev"
   - Accept: application/json
 - Query Param:
   - size: Number,
