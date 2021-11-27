@@ -197,7 +197,7 @@ Request:
   "userId": "String, Unique",
   "minute": "Number",
   "title": "String",
-  "desc": "String",
+  "description": "String",
   "expired": "Boolean",
   "createdAt": "Date",
   "updatedAt": "Date"
@@ -213,7 +213,7 @@ Response:
     "userId": "String, Unique",
     "minute": "Number",
     "title": "String",
-    "desc": "String",
+    "description": "String",
     "expired": "Boolean",
     "createdAt": "Date",
     "updatedAt": "Date"
@@ -238,7 +238,7 @@ Response:
     "userId": "String, Unique",
     "minute": "Number",
     "title": "String",
-    "desc": "String",
+    "description": "String",
     "expired": "Boolean",
     "createdAt": "Date",
     "updatedAt": "Date"
@@ -258,7 +258,7 @@ Request:
 {
   "minute": "Number",
   "title": "String",
-  "desc": "String",
+  "description": "String",
   "expired": "Boolean"
 }
 ```
@@ -272,7 +272,7 @@ Response:
     "userId": "String, Unique",
     "minute": "Number",
     "title": "String",
-    "desc": "String",
+    "description": "String",
     "expired": "Boolean",
     "createdAt": "Date",
     "updatedAt": "Date"
@@ -315,7 +315,7 @@ Response:
       "userId": "String, Unique",
       "minute": "Number",
       "title": "String",
-      "desc": "String",
+      "description": "String",
       "expired": "Boolean",
       "createdAt": "Date",
       "updatedAt": "Date"
