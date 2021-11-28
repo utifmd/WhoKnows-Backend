@@ -185,7 +185,7 @@ Response:
 ### CREATE Room
 Request:
 - Method: POST
-- Endpoint: `/api/room`
+- Endpoint: `/api/rooms`
 - Header:
   - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
@@ -326,7 +326,7 @@ Response:
 ### CREATE Quiz
 Request:
 - Method: POST
-- Endpoint: `/api/quiz`
+- Endpoint: `/api/questions`
 - Header:
   - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
@@ -473,7 +473,7 @@ Response:
 ### CREATE Result
 Request:
 - Method: POST
-- Endpoint: `/api/result`
+- Endpoint: `/api/results`
 - Header:
   - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
@@ -542,8 +542,6 @@ Request:
 - Body:
 ```json
 {
-  "roomId": "String",
-  "userId": "String",
   "correctQuiz": ["String"],
   "wrongQuiz": ["String"],
   "score": "Number"
@@ -612,11 +610,11 @@ Response:
 }
 ```
 
-## participant
-### CREATE participant
+## Participant
+### CREATE Participant
 Request:
 - Method: POST
-- Endpoint: `/api/participant`
+- Endpoint: `/api/participants`
 - Header:
   - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
@@ -649,7 +647,7 @@ Response:
   }
 }
 ```
-### READ participant
+### READ Participant
 Request:
 - Method: GET
 - Endpoint: `/api/participant/{participantId}`
@@ -674,7 +672,7 @@ Response:
   }
 }
 ```
-### Update participant
+### Update Participant
 Request:
 - Method: PUT
 - Endpoint: `/api/participant/{participantId}`
@@ -685,9 +683,6 @@ Request:
 - Body:
 ```json
 {
-  "participantId": "String, Unique",
-  "roomId": "String",
-  "userId": "String",
   "currentPage": "String",
   "timeLeft": "Number",
   "expired": "Boolean"
@@ -708,7 +703,7 @@ Response:
   }
 }
 ```
-### Delete participant
+### Delete Participant
 Request:
 - Method: DELETE
 - Endpoint: `/api/participant/{participantId}`
@@ -723,7 +718,7 @@ Response:
   "status": "String"
 }
 ```
-### List participant
+### List Participant
 Request:
 - Method: GET
 - Endpoint: `/api/participants`
