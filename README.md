@@ -198,9 +198,7 @@ Request:
   "minute": "Number",
   "title": "String",
   "description": "String",
-  "expired": "Boolean",
-  "createdAt": "Date",
-  "updatedAt": "Date"
+  "expired": "Boolean"
 }
 ```
 Response:
@@ -342,9 +340,7 @@ Request:
   "question": "String",
   "options": ["String"],
   "answer": "String",
-  "createdBy": "String",
-  "createdAt": "Date",
-  "updatedAt": "Date"
+  "createdBy": "String"
 }
 ```
 Response:
