@@ -12,7 +12,7 @@ Request:
 ### Sign In User
 Request:
 - Method: POST
-- Endpoint: `/api/auth/signin`
+- Endpoint: `/api/auth/sign-in`
 - Header:
   - X-Api-Key: "utif.pages.dev"
   - Content-Type: application/json
@@ -97,7 +97,8 @@ Response:
     "phone": "String",
     "username": "String",
     "createdAt": "Date",
-    "updatedAt": "Date"
+    "updatedAt": "Date",
+    "room": ["Room"]
   }
 }
 ```
@@ -175,7 +176,8 @@ Response:
       "phone": "String",
       "username": "String",
       "createdAt": "Date",
-      "updatedAt": "Date"
+      "updatedAt": "Date",
+      "room": ["Room"]
     }
   ]
 }
