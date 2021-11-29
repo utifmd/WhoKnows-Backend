@@ -97,8 +97,7 @@ Response:
     "phone": "String",
     "username": "String",
     "createdAt": "Date",
-    "updatedAt": "Date",
-    "room": ["Room"]
+    "updatedAt": "Date"
   }
 }
 ```
@@ -216,7 +215,9 @@ Response:
     "description": "String",
     "expired": "Boolean",
     "createdAt": "Date",
-    "updatedAt": "Date"
+    "updatedAt": "Date",
+    "questions": ["Quiz"],
+    "participants": ["Participant"]
   }
 }
 ```
@@ -241,7 +242,9 @@ Response:
     "description": "String",
     "expired": "Boolean",
     "createdAt": "Date",
-    "updatedAt": "Date"
+    "updatedAt": "Date",
+    "questions": ["Quiz"],
+    "participants": ["Participant"]
   }
 }
 ```
@@ -275,7 +278,9 @@ Response:
     "description": "String",
     "expired": "Boolean",
     "createdAt": "Date",
-    "updatedAt": "Date"
+    "updatedAt": "Date",
+    "questions": ["Quiz"],
+    "participants": ["Participant"]
   }
 }
 ```
@@ -318,7 +323,9 @@ Response:
       "description": "String",
       "expired": "Boolean",
       "createdAt": "Date",
-      "updatedAt": "Date"
+      "updatedAt": "Date",
+      "questions": ["Quiz"],
+      "participants": ["Participant"]
     }
   ]
 }
@@ -471,6 +478,149 @@ Response:
 }
 ```
 
+## Participant
+### CREATE Participant
+Request:
+- Method: POST
+- Endpoint: `/api/participants`
+- Header:
+  - X-Api-Key: "utif.pages.dev"
+  - Content-Type: application/json
+  - Accept: application/json
+- Body:
+```json
+{
+  "participantId": "String, Unique",
+  "roomId": "String",
+  "userId": "String",
+  "currentPage": "String",
+  "timeLeft": "Number",
+  "expired": "Boolean"
+}
+```
+Response:
+```json
+{
+  "code": "Number",
+  "status": "String",
+  "data": {
+    "participantId": "String, Unique",
+    "roomId": "String",
+    "userId": "String",
+    "currentPage": "String",
+    "timeLeft": "Number",
+    "expired": "Boolean",
+    "createdAt": "Date",
+    "updatedAt":"Date",
+    "result": "Result"
+  }
+}
+```
+### READ Participant
+Request:
+- Method: GET
+- Endpoint: `/api/participant/{participantId}`
+- Header:
+  - X-Api-Key: "utif.pages.dev"
+  - Accept: application/json
+
+Response:
+```json
+{
+  "code": "Number",
+  "status": "String",
+  "data": {
+    "participantId": "String, Unique",
+    "roomId": "String",
+    "userId": "String",
+    "currentPage": "String",
+    "timeLeft": "Number",
+    "expired": "Boolean",
+    "createdAt": "Date",
+    "updatedAt": "Date",
+    "result": ["Result"]
+  }
+}
+```
+### Update Participant
+Request:
+- Method: PUT
+- Endpoint: `/api/participant/{participantId}`
+- Header:
+  - X-Api-Key: "utif.pages.dev"
+  - Content-Type: application/json
+  - Accept: application/json
+- Body:
+```json
+{
+  "currentPage": "String",
+  "timeLeft": "Number",
+  "expired": "Boolean"
+}
+```
+Response:
+```json
+{
+  "code": "Number",
+  "status": "String",
+  "data": {
+    "participantId": "String, Unique",
+    "roomId": "String",
+    "userId": "String",
+    "currentPage": "String",
+    "timeLeft": "Number",
+    "expired": "Boolean",
+    "result": ["Result"]
+  }
+}
+```
+### Delete Participant
+Request:
+- Method: DELETE
+- Endpoint: `/api/participant/{participantId}`
+- Header:
+  - X-Api-Key: "utif.pages.dev"
+  - Accept: application/json
+
+Response:
+```json
+{
+  "code": "Number",
+  "status": "String"
+}
+```
+### List Participant
+Request:
+- Method: GET
+- Endpoint: `/api/participants`
+- Header:
+  - X-Api-Key: "utif.pages.dev"
+  - Accept: application/json
+- Query Param:
+  - size: Number,
+  - page: Number
+
+Response:
+```json
+{
+  "code": "Number",
+  "status": "String",
+  "data": [
+    {
+      "participantId": "String, Unique",
+      "roomId": "String",
+      "userId": "String",
+      "currentPage": "String",
+      "timeLeft": "Number",
+      "expired": "Boolean",
+      "createdAt": "Date",
+      "updatedAt": "Date",
+      "result": ["Result"]
+    }
+  ]
+}
+```
+
 ## Result
 ### CREATE Result
 Request:
@@ -484,6 +634,7 @@ Request:
 ```json
 {
   "resultId": "String, Unique",
+  "participantId": "String",
   "roomId": "String",
   "userId": "String",
   "correctQuiz": ["String"],
@@ -523,6 +674,7 @@ Response:
   "status": "String",
   "data": {
     "resultId": "String, Unique",
+    "participantId": "String",
     "roomId": "String",
     "userId": "String",
     "correctQuiz": ["String"],
@@ -556,6 +708,7 @@ Response:
   "status": "String",
   "data": {
     "resultId": "String, Unique",
+    "participantId": "String",
     "roomId": "String",
     "userId": "String",
     "correctQuiz": ["String"],
@@ -600,6 +753,7 @@ Response:
   "data": [
     {
       "resultId": "String, Unique",
+      "participantId": "String",
       "roomId": "String",
       "userId": "String",
       "correctQuiz": ["String"],
@@ -607,145 +761,6 @@ Response:
       "score": "Number",
       "createdAt": "Date",
       "updatedAt":"Date"
-    }
-  ]
-}
-```
-
-## Participant
-### CREATE Participant
-Request:
-- Method: POST
-- Endpoint: `/api/participants`
-- Header:
-  - X-Api-Key: "utif.pages.dev"
-  - Content-Type: application/json
-  - Accept: application/json
-- Body:
-```json
-{
-  "participantId": "String, Unique",
-  "roomId": "String",
-  "userId": "String",
-  "currentPage": "String",
-  "timeLeft": "Number",
-  "expired": "Boolean"
-}
-```
-Response:
-```json
-{
-  "code": "Number",
-  "status": "String",
-  "data": {
-    "participantId": "String, Unique",
-    "roomId": "String",
-    "userId": "String",
-    "currentPage": "String",
-    "timeLeft": "Number",
-    "expired": "Boolean",
-    "createdAt": "Date",
-    "updatedAt":"Date"
-  }
-}
-```
-### READ Participant
-Request:
-- Method: GET
-- Endpoint: `/api/participant/{participantId}`
-- Header:
-  - X-Api-Key: "utif.pages.dev"
-  - Accept: application/json
-
-Response:
-```json
-{
-  "code": "Number",
-  "status": "String",
-  "data": {
-    "participantId": "String, Unique",
-    "roomId": "String",
-    "userId": "String",
-    "currentPage": "String",
-    "timeLeft": "Number",
-    "expired": "Boolean",
-    "createdAt": "Date",
-    "updatedAt": "Date"
-  }
-}
-```
-### Update Participant
-Request:
-- Method: PUT
-- Endpoint: `/api/participant/{participantId}`
-- Header:
-  - X-Api-Key: "utif.pages.dev"
-  - Content-Type: application/json
-  - Accept: application/json
-- Body:
-```json
-{
-  "currentPage": "String",
-  "timeLeft": "Number",
-  "expired": "Boolean"
-}
-```
-Response:
-```json
-{
-  "code": "Number",
-  "status": "String",
-  "data": {
-    "participantId": "String, Unique",
-    "roomId": "String",
-    "userId": "String",
-    "currentPage": "String",
-    "timeLeft": "Number",
-    "expired": "Boolean"
-  }
-}
-```
-### Delete Participant
-Request:
-- Method: DELETE
-- Endpoint: `/api/participant/{participantId}`
-- Header:
-  - X-Api-Key: "utif.pages.dev"
-  - Accept: application/json 
-
-Response:
-```json
-{
-  "code": "Number",
-  "status": "String"
-}
-```
-### List Participant
-Request:
-- Method: GET
-- Endpoint: `/api/participants`
-- Header:
-  - X-Api-Key: "utif.pages.dev"
-  - Accept: application/json
-- Query Param:
-  - size: Number,
-  - page: Number
-
-Response:
-```json
-{
-  "code": "Number",
-  "status": "String",
-  "data": [
-    {
-      "participantId": "String, Unique",
-      "roomId": "String",
-      "userId": "String",
-      "currentPage": "String",
-      "timeLeft": "Number",
-      "expired": "Boolean",
-      "createdAt": "Date",
-      "updatedAt": "Date"
     }
   ]
 }
